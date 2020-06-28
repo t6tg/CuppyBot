@@ -25,5 +25,5 @@ $ yarn dev
 
 - Welcome greeting
 - !hello → hello user
-- !kick @xxx → kick user ( administrator or have permission in role)
-- !ban @xxx → ban user ( administrator or have permission in role)
+- !kick @xxx → kick user ( administrator )
+- !ban @xxx → ban user ( administrator )
