@@ -1,7 +1,9 @@
+const admin = "administrator";
+
 const kickUser = (msg) => {
   if (!msg.guild) return;
   if (msg.content.startsWith("!kick")) {
-    if (msg.member.roles.cache.some((role) => role.name === "administrator")) {
+    if (msg.member.roles.cache.some((role) => role.name === admin)) {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
@@ -30,7 +32,7 @@ const kickUser = (msg) => {
 const banUser = (msg) => {
   if (!msg.guild) return;
   if (msg.content.startsWith("!ban")) {
-    if (msg.member.roles.cache.some((role) => role.name === "administrator")) {
+    if (msg.member.roles.cache.some((role) => role.name === admin)) {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
@@ -54,4 +56,23 @@ const banUser = (msg) => {
   }
 };
 
-module.exports = { kickUser, banUser };
+const addUserRole = (msg) => {
+  if (!msg.guild) return;
+  if (msg.content.startsWith("!addUser")) {
+    if (msg.member.roles.cache.some((role) => role.name === admin)) {
+      const user = msg.mentions.users.first();
+      if (user) {
+        const member = msg.guild.member(user);
+        if (member) {
+          const roles = member.guild.roles.cache.find((r) => r.name === "user");
+          member.roles.add(roles);
+          msg.reply("🥳 Successful to add user role");
+        }
+      }
+    } else {
+      msg.reply("You don't have permission to ban users");
+    }
+  }
+};
+
+module.exports = { kickUser, banUser, addUserRole };
