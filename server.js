@@ -16,4 +16,10 @@ client.on("guildMemberAdd", (member) => {
   channel.send(`Welcome ${member} to this world`);
 });
 
+client.on("message", (msg) => {
+  if (msg.content === "!hello") {
+    msg.reply(`หวัดดี`);
+  }
+});
+
 client.login(config.DISCORD_SECRET_TOKEN);
