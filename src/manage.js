@@ -11,16 +11,40 @@ const kickUser = (msg) => {
             msg.reply(`🎉 Successful kicked ${user.tag}`);
           })
           .catch((err) => {
-            msg.reply("I was unable to kick the member 😢");
+            msg.reply(`I was unable to kick ${user.tag}`);
             console.log(err);
           });
       } else {
-        message.reply("That user isn't in this guild! 😢");
+        msg.reply(`${user.tag} isn't in this guild!! 😢`);
       }
     } else {
-      message.reply("You dint't mention the user to kick 😢");
+      msg.reply("You dint't mention the user to kick 😢");
     }
   }
 };
 
-module.exports = { kickUser };
+const banUser = (msg) => {
+  if (!msg.guild) return;
+  if (msg.content.startsWith("!ban")) {
+    const user = msg.mentions.users.first();
+    if (user) {
+      const member = msg.guild.member(user);
+      if (member) {
+        member
+          .ban()
+          .then(() => {
+            msg.reply(`🎉 Successful baned ${user.tag}`);
+          })
+          .catch((err) => {
+            msg.reply(`I was unable to ban ${user.tag}`);
+          });
+      } else {
+        msg.reply(`${user.tag} isn't in this guild!! 😢`);
+      }
+    } else {
+      msg.reply(`You din't mention the user to ban`);
+    }
+  }
+};
+
+module.exports = { kickUser, banUser };

@@ -21,6 +21,7 @@ client.on("guildMemberAdd", (member) => {
 client.on("message", (msg) => {
   message.helloMsg(msg);
   manage.kickUser(msg);
+  manage.banUser(msg);
 });
 
 client.login(config.DISCORD_SECRET_TOKEN);
