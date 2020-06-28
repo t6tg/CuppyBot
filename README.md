@@ -27,3 +27,4 @@ $ yarn dev
 - !hello → hello user
 - !kick @xxx → kick user ( administrator )
 - !ban @xxx → ban user ( administrator )
+- !addUser @xxx → add user role ( only 1 user per time )
