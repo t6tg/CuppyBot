@@ -6,10 +6,14 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on("message", (msg) => {
-  if (msg.content === "ping") {
-    msg.reply("pong!!!");
+client.on("guildMemberAdd", (member) => {
+  const channel = member.guild.channels.cache.find(
+    (ch) => ch.name === "welcome"
+  );
+  if (!channel) {
+    return;
   }
+  channel.send(`Welcome ${member} to this world`);
 });
 
 client.login(config.DISCORD_SECRET_TOKEN);
