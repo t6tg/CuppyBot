@@ -1,5 +1,7 @@
 const admin = "administrator";
 const users = "user";
+const coAdmin = "co-administrator";
+
 const adminRole = (msg) => {
   return msg.member.roles.cache.some((role) => role.name === admin);
 };
