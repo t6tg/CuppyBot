@@ -18,5 +18,9 @@ client.on("guildMemberAdd", (member) => {
   channel.send(`Welcome ${member} to this world`);
 });
 
-client.on("message", (msg) => message.helloMsg(msg));
+client.on("message", (msg) => {
+  message.helloMsg(msg);
+  manage.kickUser(msg);
+});
+
 client.login(config.DISCORD_SECRET_TOKEN);
