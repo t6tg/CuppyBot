@@ -1,4 +1,6 @@
-# CuppyBot ( DiscordBot ) [ This bot , now under development ]
+# CuppyBot ( DiscordBot )
+
+[ This bot , now under development ]
 
 ## Requirement
 
