@@ -1,5 +1,5 @@
 const admin = "administrator";
-const user = "user";
+const users = "user";
 const adminRole = (msg) => {
   return msg.member.roles.cache.some((role) => role.name === admin);
 };
@@ -67,9 +67,8 @@ const addUserRole = (msg) => {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
-        a;
         if (member) {
-          const roles = member.guild.roles.cache.find((r) => r.name === user);
+          const roles = member.guild.roles.cache.find((r) => r.name === users);
           member.roles.add(roles);
           msg.reply("🥳 Successful to add user role");
         }
