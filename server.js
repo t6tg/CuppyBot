@@ -17,6 +17,7 @@ client.on("message", (msg) => {
   manage.banUser(msg);
   manage.addUserRole(msg);
   manage.addCoAdminRole(msg);
+  manage.addAdminRole(msg);
 });
 
 client.login(config.DISCORD_SECRET_TOKEN);

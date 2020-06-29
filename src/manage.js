@@ -79,7 +79,7 @@ const addUserRole = (msg) => {
         }
       }
     } else {
-      msg.reply("You don't have permission to add users");
+      msg.reply(`You don't have permission to add ${users}`);
     }
   }
 };
@@ -99,10 +99,37 @@ const addCoAdminRole = (msg) => {
           msg.reply("🥳 Successful to add co-admin role");
         }
       } else {
-        msg.reply("You don't have permission to add co-admin");
+        msg.reply(`You don't have permission to add ${coAdmin}`);
       }
     }
   }
 };
 
-module.exports = { kickUser, banUser, addUserRole, addCoAdminRole };
+const addAdminRole = (msg) => {
+  if (!msg.guild) return;
+  if (msg.content.startsWith("!addAdmin")) {
+    if (adminRole(msg)) {
+      const user = msg.mentions.users.first();
+      if (user) {
+        const member = msg.guild.member(user);
+        if (member) {
+          const roles = member.guild.roles.cache.find(
+            (role) => role.name === admin
+          );
+          member.roles.add(roles);
+          msg.reply("🥳 Successful to add Admin role");
+        }
+      } else {
+        msg.reply(`You don't have permission to add ${admin}`);
+      }
+    }
+  }
+};
+
+module.exports = {
+  kickUser,
+  banUser,
+  addUserRole,
+  addCoAdminRole,
+  addAdminRole,
+};

@@ -28,4 +28,5 @@ $ yarn dev
 - !kick @xxx → kick user ( administrator )
 - !ban @xxx → ban user ( administrator )
 - !addUser @xxx → add user role ( only 1 user per time )
-- !addCoAdmin @xxxx → add co-admin rols (only 1 user per time )
+- !addCoAdmin @xxx → add co-admin role (only 1 user per time , permission for admin and co-admin )
+- !addAdmin @xxx →add administrator role ( only 1 user per time , permission for admin only )
