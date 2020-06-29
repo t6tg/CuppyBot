@@ -5,6 +5,9 @@ const coAdmin = "co-administrator";
 const adminRole = (msg) => {
   return msg.member.roles.cache.some((role) => role.name === admin);
 };
+const coAdminRole = (msg) => {
+  return msg.member.roles.cache.some((role) => role.name === coAdmin);
+};
 
 const kickUser = (msg) => {
   if (!msg.guild) return;
@@ -76,9 +79,30 @@ const addUserRole = (msg) => {
         }
       }
     } else {
-      msg.reply("You don't have permission to ban users");
+      msg.reply("You don't have permission to add users");
     }
   }
 };
 
-module.exports = { kickUser, banUser, addUserRole };
+const addCoAdminRole = (msg) => {
+  if (!msg.guild) return;
+  if (msg.content.startsWith("!addCoAdmin")) {
+    if (adminRole(msg) || coAdminRole(msg)) {
+      const user = msg.mentions.users.first();
+      if (user) {
+        const member = msg.guild.member(user);
+        if (member) {
+          const roles = member.guild.roles.cache.find(
+            (r) => r.name === coAdmin
+          );
+          member.roles.add(roles);
+          msg.reply("🥳 Successful to add co-admin role");
+        }
+      } else {
+        msg.reply("You don't have permission to add co-admin");
+      }
+    }
+  }
+};
+
+module.exports = { kickUser, banUser, addUserRole, addCoAdminRole };
