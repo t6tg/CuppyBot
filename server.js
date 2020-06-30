@@ -4,6 +4,7 @@ const config = require("./config");
 const message = require("./src/message");
 const manage = require("./src/manage");
 const greeting = require("./src/greeting");
+const music = require("./src/music");
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -18,6 +19,7 @@ client.on("message", (msg) => {
   manage.addUserRole(msg);
   manage.addCoAdminRole(msg);
   manage.addAdminRole(msg);
+  music.playMusicYT(msg);
 });
 
 client.login(config.DISCORD_SECRET_TOKEN);
