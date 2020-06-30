@@ -72,7 +72,7 @@ const addUserRole = (msg) => {
         }
       }
     } else {
-      msg.reply(`You don't have permission to add ${users}`);
+      msg.reply(`You don't have permission to add ${permission.users}`);
     }
   }
 };
@@ -92,7 +92,7 @@ const addCoAdminRole = (msg) => {
           msg.reply("🥳 Successful to add co-admin role");
         }
       } else {
-        msg.reply(`You don't have permission to add ${coAdmin}`);
+        msg.reply(`You don't have permission to add ${permission.coAdmin}`);
       }
     }
   }
@@ -113,7 +113,7 @@ const addAdminRole = (msg) => {
           msg.reply("🥳 Successful to add Admin role");
         }
       } else {
-        msg.reply(`You don't have permission to add ${admin}`);
+        msg.reply(`You don't have permission to add ${permission.admin}`);
       }
     }
   }
