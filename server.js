@@ -20,6 +20,8 @@ client.on("message", (msg) => {
   manage.addCoAdminRole(msg);
   manage.addAdminRole(msg);
   music.playMusicYT(msg);
+  music.stopMusicYT(msg);
+  music.confirmStop(msg);
 });
 
 client.login(config.DISCORD_SECRET_TOKEN);

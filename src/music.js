@@ -18,12 +18,47 @@ const playMusicYT = (msg) => {
           dispatcher.on("end", () => voiceChannel.leave());
         });
       } catch (error) {
-        console.log("🔥 Error , pls try again later.");
+        msg.reply("🔥 Error , pls try again later.");
+        console.log(error);
       }
     } else {
-      msg.reply(`You don't have permission to add ${permission.admin}`);
+      msg.reply(
+        `You don't have permission to play , this command accept with  ${permission.admin}`
+      );
     }
   }
 };
 
-module.exports = { playMusicYT };
+const stopMusicYT = (msg) => {
+  if (msg.content === "!stop") {
+    if (permission.adminRole(msg)) {
+      if (msg.channel.type !== "text") return;
+      const voiceChannel = msg.member.voice.channel;
+      if (!voiceChannel)
+        return msg.reply("😟 Please join a voice channel first!!!");
+      try {
+        msg.reply("✅ You confirm to stop music!!! ( confirm / no )");
+      } catch (error) {
+        msg.reply("🔥 Error , pls try again later.");
+        console.log(error);
+      }
+    } else {
+      msg.reply(
+        `You don't have permission to stop , this command accept with ${permission.admin}`
+      );
+    }
+  }
+};
+
+const confirmStop = (msg) => {
+  if (permission.adminRole(msg)) {
+    const voiceChannel = msg.member.voice.channel;
+    if (!voiceChannel)
+      return msg.reply("😟 Please join a voice channel first!!!");
+    if (msg.content === "confirm") {
+      voiceChannel.leave();
+    }
+  }
+};
+
+module.exports = { playMusicYT, stopMusicYT, confirmStop };
