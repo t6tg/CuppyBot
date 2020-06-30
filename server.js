@@ -10,7 +10,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on("guildMemberAdd", (member) => greeting.greet);
+client.on("guildMemberAdd", (member) => greeting.greet(member));
 
 client.on("message", (msg) => {
   message.helloMsg(msg);
