@@ -52,10 +52,10 @@ const stopMusicYT = (msg) => {
 
 const confirmStop = (msg) => {
   if (permission.adminRole(msg)) {
-    const voiceChannel = msg.member.voice.channel;
-    if (!voiceChannel)
-      return msg.reply("😟 Please join a voice channel first!!!");
     if (msg.content === "confirm") {
+      const voiceChannel = msg.member.voice.channel;
+      if (!voiceChannel)
+        return msg.reply("😟 Please join a voice channel first!!!");
       voiceChannel.leave();
     }
   }
