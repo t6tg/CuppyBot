@@ -1,18 +1,9 @@
-const admin = "administrator";
-const users = "user";
-const coAdmin = "co-administrator";
-
-const adminRole = (msg) => {
-  return msg.member.roles.cache.some((role) => role.name === admin);
-};
-const coAdminRole = (msg) => {
-  return msg.member.roles.cache.some((role) => role.name === coAdmin);
-};
+const permission = require("./permission");
 
 const kickUser = (msg) => {
   if (!msg.guild) return;
   if (msg.content.startsWith("!kick")) {
-    if (adminRole(msg)) {
+    if (permission.adminRole(msg)) {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
@@ -41,7 +32,7 @@ const kickUser = (msg) => {
 const banUser = (msg) => {
   if (!msg.guild) return;
   if (msg.content.startsWith("!ban")) {
-    if (adminRole(msg)) {
+    if (permission.adminRole(msg)) {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
@@ -68,12 +59,14 @@ const banUser = (msg) => {
 const addUserRole = (msg) => {
   if (!msg.guild) return;
   if (msg.content.startsWith("!addUser")) {
-    if (adminRole(msg)) {
+    if (permission.adminRole(msg)) {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
         if (member) {
-          const roles = member.guild.roles.cache.find((r) => r.name === users);
+          const roles = member.guild.roles.cache.find(
+            (r) => r.name === permission.users
+          );
           member.roles.add(roles);
           msg.reply("🥳 Successful to add user role");
         }
@@ -87,13 +80,13 @@ const addUserRole = (msg) => {
 const addCoAdminRole = (msg) => {
   if (!msg.guild) return;
   if (msg.content.startsWith("!addCoAdmin")) {
-    if (adminRole(msg) || coAdminRole(msg)) {
+    if (permission.adminRole(msg) || permission.coAdminRole(msg)) {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
         if (member) {
           const roles = member.guild.roles.cache.find(
-            (r) => r.name === coAdmin
+            (r) => r.name === permission.coAdmin
           );
           member.roles.add(roles);
           msg.reply("🥳 Successful to add co-admin role");
@@ -108,13 +101,13 @@ const addCoAdminRole = (msg) => {
 const addAdminRole = (msg) => {
   if (!msg.guild) return;
   if (msg.content.startsWith("!addAdmin")) {
-    if (adminRole(msg)) {
+    if (permission.adminRole(msg)) {
       const user = msg.mentions.users.first();
       if (user) {
         const member = msg.guild.member(user);
         if (member) {
           const roles = member.guild.roles.cache.find(
-            (role) => role.name === admin
+            (role) => role.name === permission.admin
           );
           member.roles.add(roles);
           msg.reply("🥳 Successful to add Admin role");
