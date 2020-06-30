@@ -1,1 +1,1 @@
-web: node server.js
+woker: node server.js
