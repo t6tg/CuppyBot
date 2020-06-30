@@ -31,3 +31,4 @@ $ yarn dev
 - !addCoAdmin @xxx → add co-admin role (only 1 user per time , permission for admin and co-admin )
 - !addAdmin @xxx →add administrator role ( only 1 user per time , permission for admin only )
 - !play https://[ Link YT ] → play music from youtube link ( audioonly )
+- !stop → stop youtube music ( Must confirm to stop music )
