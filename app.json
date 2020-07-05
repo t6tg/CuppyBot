@@ -9,5 +9,8 @@
       "description": "A secret discord key",
       "required": true
     }
+  },
+  "scripts": {
+    "woker": "node server.js"
   }
 }
