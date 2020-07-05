@@ -9,8 +9,5 @@
       "description": "A secret discord key",
       "required": true
     }
-  },
-  "scripts": {
-    "web": "node server.js"
   }
 }
