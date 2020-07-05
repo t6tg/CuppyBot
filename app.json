@@ -11,6 +11,6 @@
     }
   },
   "scripts": {
-    "postdeploy": ["node server.js"]
+    "postdeploy": "node server.js"
   }
 }
