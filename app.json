@@ -3,5 +3,11 @@
   "description": "A barebones Node.js app using Express",
   "repository": "https://github.com/thanawatgulati/cuppybot",
   "logo": "https://i.ibb.co/DYDTJB6/cuppy.png",
-  "keywords": ["bot", "discord"]
+  "keywords": ["bot", "discord"],
+  "env": {
+    "DISCORD_SECRET_TOKEN": {
+      "description": "A secret discord key",
+      "generator": "secret"
+    }
+  }
 }

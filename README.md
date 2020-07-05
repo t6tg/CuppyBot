@@ -35,6 +35,6 @@ $ yarn dev
 
 ## Deploy ( heroku )
 
-<a href="https://heroku.com/deploy?template=https://github.com/thanawatgulati/cuppybot&env[DISCORD_SECRET_TOKEN]=xxxxx">
+<a href="https://heroku.com/deploy?template=https://github.com/thanawatgulati/cuppybot">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
