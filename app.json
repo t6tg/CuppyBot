@@ -6,7 +6,7 @@
   "keywords": ["bot", "discord"],
   "env": {
     "DISCORD_SECRET_TOKEN": {
-      "description": "A secret discord key",
+      "description": "A discord secret token",
       "required": true
     }
   }
