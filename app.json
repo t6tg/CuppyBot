@@ -7,7 +7,7 @@
   "env": {
     "DISCORD_SECRET_TOKEN": {
       "description": "A secret discord key",
-      "generator": "secret"
+      "required": true
     }
   }
 }
