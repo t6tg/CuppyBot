@@ -32,3 +32,9 @@ $ yarn dev
 - !addAdmin @xxx →add administrator role ( only 1 user per time , permission for admin only )
 - !play https://[ Link YT ] → play music from youtube link ( audioonly )
 - !stop → stop youtube music ( Must confirm to stop music )
+
+## Deploy ( heroku )
+
+<a href="https://heroku.com/deploy?template=https://github.com/heroku/node-js-getting-started">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
