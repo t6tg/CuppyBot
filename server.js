@@ -5,6 +5,13 @@ const message = require("./src/message");
 const manage = require("./src/manage");
 const greeting = require("./src/greeting");
 const music = require("./src/music");
+const express = require("express")
+const app = express()
+
+app.get("/", req,res,() => {
+  res.send("hi")
+})
+
 
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
